@@ -45,6 +45,6 @@ jobs:
           port: ${{ secrets.PORT_PRODUCTION }}
           script: | 
             docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASSWORD }}
-            cd ~/eVSystem/Eviest-FE
+            cd ~/eVSystem
             docker compose pull eviest-fe
             docker compose up -d eviest-fe
