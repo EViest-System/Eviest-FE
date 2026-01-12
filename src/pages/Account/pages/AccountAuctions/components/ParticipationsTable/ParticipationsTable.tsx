@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom'
-import type { Participation, SessionStatus } from '~/types/auction.type'
-import { formatCurrencyVND, formatUTCDateString } from '~/utils/util'
-import StatusPill from '../StatusPill'
+import { Link } from 'react-router-dom';
+import type { Participation, SessionStatus } from '~/types/auction.type';
+import { formatCurrencyVND, formatUTCDateString } from '~/utils/util';
+import StatusPill from '../StatusPill';
 
 export default function ParticipationsTable({ rows, emptyText }: { rows: Participation[]; emptyText: string }) {
   return (

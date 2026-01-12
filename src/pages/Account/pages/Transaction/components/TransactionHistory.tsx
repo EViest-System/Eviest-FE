@@ -62,6 +62,10 @@ const TransactionItem = ({ transaction }: { transaction: Transaction }) => {
       icon: ArrowUpRight,
       color: 'bg-emerald-100 text-emerald-600'
     },
+    refund: {
+      icon: ArrowUpRight,
+      color: 'bg-emerald-100 text-emerald-600'
+    },
     post: {
       icon: TrendingUp,
       color: 'bg-orange-100 text-orange-600'

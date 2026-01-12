@@ -134,12 +134,11 @@ export default function Footer() {
                 {new Date().getFullYear()}, giữ mọi quyền.
               </span>
 
-              <div className='flex mt-1 space-x-3 sm:justify-center lg:mt-0'>
+              {/* <div className='flex mt-1 space-x-3 sm:justify-center lg:mt-0'>
                 <a
                   href='#'
                   className='w-8 h-8 rounded-full flex justify-center items-center bg-sky-500/80 hover:bg-sky-500 transition'
                 >
-                  {/* X/Twitter-like icon */}
                   <svg xmlns='http://www.w3.org/2000/svg' width={20} height={20} viewBox='0 0 20 20' fill='none'>
                     <path
                       d='M11.321 8.937 16.492 3.056h-1.225l-4.49 5.106L7.191 3.056H3.056l5.422 7.722-5.422 6.167h1.225l4.741-5.393 3.787 5.393h4.136L11.321 8.937Z'
@@ -197,7 +196,7 @@ export default function Footer() {
                     />
                   </svg>
                 </a>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

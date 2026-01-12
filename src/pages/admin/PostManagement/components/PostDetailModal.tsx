@@ -1,6 +1,8 @@
 import { Button } from '~/components/ui/button'
-import { Dialog, DialogContent, DialogTitle, DialogHeader } from '~/components/ui/dialog'
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '~/components/ui/dialog'
+import { BATTERY_HEALTH_OPTIONS, CAPACITY_OPTIONS, MILEAGE_OPTIONS, POWER_OPTIONS, VOLTAGE_OPTIONS } from '~/constants/options'
 import type { BatteryType, PostType, VehicleType } from '~/types/post.type'
+import { labelFromOptions } from '~/utils/option'
 import { formatUTCDateString } from '~/utils/util'
 
 export default function PostDetailModal({
@@ -56,7 +58,7 @@ export default function PostDetailModal({
             <Info label='Mẫu' value={post.product.model} />
             <Info label='Đời chủ cũ' value={post.product.previousOwners} />
             <Info label='Năm sản xuất' value={post.product.year} />
-            <Info label='Tình trạng' value={post.product.health} />
+            <Info label='Tình trạng' value={labelFromOptions(BATTERY_HEALTH_OPTIONS,post.product.health)} />
             <Info label='Địa chỉ' value={post.product.address} />
             {isVehicle ? (
               // HIỂN THỊ THÔNG TIN XE
@@ -64,17 +66,17 @@ export default function PostDetailModal({
                 <Info label='Chỗ ngồi' value={vehicleProduct.seats ? vehicleProduct.seats + ' chỗ' : placeholder} />
                 <Info
                   label='Quãng đường đã đi'
-                  value={vehicleProduct.mileage ? vehicleProduct.mileage + 'km' : placeholder}
+                  value={vehicleProduct.mileage ? labelFromOptions(MILEAGE_OPTIONS,vehicleProduct.mileage) : placeholder}
                 />
-                <Info label='Công suất' value={vehicleProduct.power ? vehicleProduct.power + 'kW' : placeholder} />
+                <Info label='Công suất' value={vehicleProduct.power ? labelFromOptions(POWER_OPTIONS,vehicleProduct.power) : placeholder} />
               </>
             ) : (
               // HIỂN THỊ THÔNG TIN PIN
               <>
-                <Info label='Sức chứa' value={batteryProduct.capacity ? batteryProduct.capacity + 'Ah' : placeholder} />
-                <Info label='Điện áp' value={batteryProduct.voltage ? batteryProduct.voltage : placeholder} />
+                <Info label='Điện dung' value={batteryProduct.capacity ? labelFromOptions(CAPACITY_OPTIONS,batteryProduct.capacity) : placeholder} />
+                <Info label='Điện áp' value={batteryProduct.voltage ? labelFromOptions(VOLTAGE_OPTIONS, batteryProduct.voltage) : placeholder} />
               </>
-            )}
+)}
 
             <Info
               label='Giá'

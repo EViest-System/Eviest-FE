@@ -20,9 +20,6 @@ interface Props {
   outOfAiRange?: boolean
 }
 export default function VehicleForm({ aiMin, aiMax, outOfAiRange }: Props) {
-  console.log('aiMin', aiMin)
-  console.log('aiMax', aiMax)
-  console.log('outOfAiRange', outOfAiRange)
   const {
     register,
     control,

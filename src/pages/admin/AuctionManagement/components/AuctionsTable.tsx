@@ -1,5 +1,3 @@
-''
-
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
@@ -89,7 +87,7 @@ export default function AuctionsTable(props: PropsType) {
     if (isVerify) {
       updateAuction.mutate({ auctionId, duration })
     } else {
-      toast.info('Chưa chọn xác minh phiên đấu giá!')
+toast.info('Chưa chọn xác minh phiên đấu giá!')
     }
   }
   const handleEdit = (auction: Auction) => {
@@ -159,7 +157,7 @@ export default function AuctionsTable(props: PropsType) {
         <div className='col-span-2 text-xs font-semibold uppercase tracking-wide text-slate-600 text-right'>
           Hành Động
         </div>
-      </div>
+</div>
 
       {/* Rows */}
       <div className='divide-y divide-slate-200'>
@@ -222,7 +220,7 @@ export default function AuctionsTable(props: PropsType) {
                             Xem hợp đồng
                           </button>
                         </>
-                      ) : (
+) : (
                         <>
                           <ReportModal
                             auctionId={auction.id}
@@ -280,7 +278,7 @@ export default function AuctionsTable(props: PropsType) {
                     <div className='col-span-1 sm:col-span-2 flex justify-end gap-2 cursor-default'>
                       <button
                         onClick={() => handleEdit(auction)}
-                        className='rounded-lg bg-slate-200 px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-300 transition-colors'
+className='rounded-lg bg-slate-200 px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-300 transition-colors'
                       >
                         Chỉnh Sửa
                       </button>
@@ -339,7 +337,7 @@ export default function AuctionsTable(props: PropsType) {
 
             <div className='space-y-4'>
               {/* Thời lượng */}
-              <div>
+<div>
                 <label className='block text-sm font-medium text-slate-700'>Thời lượng (giây)</label>
                 <input
                   type='number'
@@ -406,7 +404,7 @@ export default function AuctionsTable(props: PropsType) {
               <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
                 {Object.entries(form).map(([key, value]) => {
                   const isMoneyField = key === 'deposit_amount' || key === 'vehicle_price'
-                  const displayValue = isMoneyField ? formatMoney(Number(value)) : String(value ?? '')
+const displayValue = isMoneyField ? formatMoney(Number(value)) : String(value ?? '')
                   const vietnamLabel = formLabelMap[key as keyof FormContract] || key.replace('_', ' ')
                   return (
                     <div key={key}>

@@ -40,7 +40,7 @@ const baseCommon = yup.object({
   category_id: yup.number().required('Vui lòng chọn loại xe'),
 
   brand: yup.string().required('Vui lòng nhập hãng sản xuất'),
-  model: yup.string().required('Vui lòng nhập model'),
+  model: yup.string().required('Vui lòng nhập tên'),
 
   warranty: yup.string().required('Vui lòng chọn bảo hành'),
 

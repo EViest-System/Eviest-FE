@@ -25,7 +25,7 @@ export default function NavHeader() {
   const normalizedPathname = pathname === path.vehicle || pathname === path.battery ? pathname : path.home
   const [title, setTitle] = useState<string>('')
   const navigate = useNavigate()
-  const { isAuthenticated, profile } = useContext(AppContext)
+  const { isAuthenticated, profile, reset } = useContext(AppContext)
   const queryConfig = useQueryConfig()
   useEffect(() => {
     if (queryConfig.title) {
@@ -61,6 +61,8 @@ export default function NavHeader() {
       queryClient.clear()
       // Xóa localStorage của React Query persister
       clearReactQueryCache()
+      // Reset profile và isAuthenticated
+      reset()
       // Navigate về landing page
       navigate(path.landingPage)
     }
@@ -122,6 +124,7 @@ export default function NavHeader() {
     total: myPosts?.data.data.count?.all ?? 0
   }
 
+  // Lấy profile để có totalCredit (nhẹ hơn getUserTransaction)
   const {
     data: profileData,
     isFetching: profileFetching,
@@ -130,10 +133,11 @@ export default function NavHeader() {
     queryKey: ['profile'],
     queryFn: accountApi.getProfile,
     enabled: isAuthenticated,
-    staleTime: 30 * 1000,
-    gcTime: 15 * 60 * 1000,
+    staleTime: 30 * 1000, // Cache 30 giây - khi mở menu sẽ refetch nếu đã stale
+    gcTime: 15 * 60 * 1000, // giữ cache 15 phút
     refetchOnWindowFocus: false
   })
+  // Ưu tiên dùng profileData, fallback về profile từ context
   const currentProfile = profileData?.data.data.user || profile
   const walletBalance = currentProfile?.totalCredit ?? '0'
 
@@ -198,9 +202,13 @@ export default function NavHeader() {
                 if (open && isAuthenticated && !notificationFetching && !notificationRefetchRef.current) {
                   notificationRefetchRef.current = true
                   refetchNotifications().finally(() => {
-                    notificationRefetchRef.current = false
+                    // Reset sau khi fetch xong để lần mở tiếp theo vẫn refetch được
+                    setTimeout(() => {
+                      notificationRefetchRef.current = false
+                    }, 100)
                   })
                 } else if (!open) {
+                  // Reset khi đóng menu
                   notificationRefetchRef.current = false
                 }
               }}
@@ -252,9 +260,13 @@ export default function NavHeader() {
                 if (open && isAuthenticated && !favFetching && !favoriteRefetchRef.current) {
                   favoriteRefetchRef.current = true
                   refetchFavorites().finally(() => {
-                    favoriteRefetchRef.current = false
+                    // Reset sau khi fetch xong để lần mở tiếp theo vẫn refetch được
+                    setTimeout(() => {
+                      favoriteRefetchRef.current = false
+                    }, 100)
                   })
                 } else if (!open) {
+                  // Reset khi đóng menu
                   favoriteRefetchRef.current = false
                 }
               }}

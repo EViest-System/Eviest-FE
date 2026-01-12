@@ -1,0 +1,38 @@
+name: Deploy Production
+
+on:
+  push:
+    branches: ['main']
+  workflow_dispatch: # Cho phép chạy thủ công từ GitHub UI
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: 21.7.3
+          cache: 'npm'
+      - name: Create .env file
+        run: echo "${{secrets.ENV_PRODUCTION}}" > .env
+      - run: npm i --force
+      - run: npm run build
+
+
+  # Uncomment và config theo nhu cầu deploy của bạn
+  # deploy:
+  #   name: Deploy to Production
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   if: github.ref == 'refs/heads/main'
+  #   steps:
+  #     - name: Download build artifacts
+  #       uses: actions/download-artifact@v4
+  #       with:
+  #         name: build-files
+  #         path: dist/
+  #
+  #     # Thêm các bước deploy của bạn ở đây
+  #     # Ví dụ: deploy lên Vercel, Netlify, AWS S3, hoặc server của bạn

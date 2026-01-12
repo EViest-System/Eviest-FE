@@ -87,7 +87,7 @@ export default function PackageList({ packages, loading = false, onEdit }: Packa
                     Tên gói
                   </th>
                   <th className='px-4 py-3 text-left text-sm font-medium text-muted-foreground min-w-[150px]'>Loại</th>
-                  <th className='px-4 py-3 text-right text-sm font-medium text-muted-foreground'>Giá</th>
+<th className='px-4 py-3 text-right text-sm font-medium text-muted-foreground'>Giá</th>
                   <th className='px-4 py-3 text-center text-sm font-medium text-muted-foreground'>Thời hạn</th>
                   <th className='px-4 py-3 text-center text-sm font-medium text-muted-foreground'>Số tin</th>
                   {/* <th className='px-4 py-3 text-center text-sm font-medium text-muted-foreground'>Đẩy tin</th> */}
@@ -141,8 +141,8 @@ export default function PackageList({ packages, loading = false, onEdit }: Packa
                         {pkg.number_of_post} tin
                       </Badge>
                     </td>
-                    {/* 
-                    <td className='px-4 py-4 text-center'>
+                    {/*
+<td className='px-4 py-4 text-center'>
                       <Badge variant='secondary' className='font-mono text-xs'>
                         {pkg.number_of_push} lượt
                       </Badge>
@@ -215,7 +215,7 @@ export default function PackageList({ packages, loading = false, onEdit }: Packa
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
-      </AlertDialog>
+</AlertDialog>
     </>
   )
 }

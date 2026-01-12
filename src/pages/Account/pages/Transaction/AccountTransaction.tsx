@@ -87,7 +87,7 @@ export default function AccountTransaction() {
             <div className='text-3xl font-bold text-gray-900 mb-1'>
               {transactionsData?.data.data.total_topup.toLocaleString('vi-VN')}đ
             </div>
-            <div className='text-sm text-gray-600'>Tổng nạp (VND)</div>
+            <div className='text-sm text-gray-600'>Tổng thu (VND)</div>
           </div>
 
           <div className='bg-white border border-gray-200 rounded-2xl p-6'>

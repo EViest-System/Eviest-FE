@@ -71,7 +71,7 @@ export default function Sidebar() {
 
       {/* Menu */}
       <nav className='flex flex-col flex-1'>
-        {menuItems.map((item) => {
+{menuItems.map((item) => {
           const Icon = item.icon
           const isActive = currentPath === item.path
 

@@ -9,8 +9,8 @@ import { toast } from 'react-toastify'
 import PaginationAdmin from '~/components/Pagination/PaginationAdmin'
 import { Button } from '~/components/ui/button'
 import type { PostStatus, PostType } from '~/types/post.type'
-import RejectReasonModal from './RejectReasonModal/RejectReasomModal'
 import PostDetailModal from './PostDetailModal'
+import RejectReasonModal from './RejectReasonModal/RejectReasomModal'
 
 type GetPostsResponse = Awaited<ReturnType<typeof postApi.getPostsByAdmin>>
 
@@ -69,7 +69,7 @@ export default function PostTable(props: Props) {
                 <th className='py-3 px-4 whitespace-nowrap'>Bài đăng</th>
                 <th className='py-3 px-4 whitespace-nowrap'>Tiêu đề</th>
                 <th className='py-3 px-4 whitespace-nowrap'>Hãng xe</th>
-                <th className='py-3 px-4 whitespace-nowrap'>Tên sản phẩm</th>
+<th className='py-3 px-4 whitespace-nowrap'>Tên sản phẩm</th>
                 <th className='py-3 px-4 whitespace-nowrap'>Giá</th>
                 <th className='py-3 px-4 whitespace-nowrap'>Ngày tạo</th>
                 <th className='py-3 px-4 whitespace-nowrap'>Trạng thái</th>
@@ -115,7 +115,7 @@ export default function PostTable(props: Props) {
                       ) : (
                         <Badge className='bg-gray-100 text-gray-600'>Thường</Badge>
                       )}
-                    </td> */}
+</td> */}
 
                     {isPendingTab && (
                       <td className='py-3 px-4 text-right whitespace-nowrap'>

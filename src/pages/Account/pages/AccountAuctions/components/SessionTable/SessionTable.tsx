@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom'
-import type { AuctionType, SessionStatus } from '~/types/auction.type'
-import { formatCurrencyVND, formatUTCDateString } from '~/utils/util'
-import StatusPill from '../StatusPill'
+import { Link } from 'react-router-dom';
+import type { AuctionType, SessionStatus } from '~/types/auction.type';
+import { formatCurrencyVND, formatUTCDateString } from '~/utils/util';
+import StatusPill from '../StatusPill';
 
 export default function SessionsTable({ rows, emptyText }: { rows: AuctionType[]; emptyText: string }) {
   return (

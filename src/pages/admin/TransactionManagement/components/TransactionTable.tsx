@@ -1,6 +1,6 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '~/components/ui/card'
-import type { TransactionListAdmin } from '~/types/transaction.type'
-import { formatUTCDateString } from '~/utils/util'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '~/components/ui/card';
+import type { TransactionListAdmin } from '~/types/transaction.type';
+import { formatUTCDateString } from '~/utils/util';
 
 export default function TransactionTable({ transaction }: { transaction: TransactionListAdmin }) {
   const STATUS_STYLES: Record<string, { bg: string; text: string; label: string }> = {
@@ -48,7 +48,7 @@ export default function TransactionTable({ transaction }: { transaction: Transac
   //   AUCTION_SUCCESS: { bg: 'bg-emerald-50', text: 'text-emerald-700', label: 'Auction Success' }
   // }
   const TRACKING_STYLES: Record<string, { bg: string; text: string; label: string }> = {
-    PENDING: { bg: 'bg-yellow-50', text: 'text-yellow-700', label: 'Chờ xử lý' },
+PENDING: { bg: 'bg-yellow-50', text: 'text-yellow-700', label: 'Chờ xử lý' },
     PROCESSING: { bg: 'bg-blue-50', text: 'text-blue-700', label: 'Đang xử lý' },
     SUCCESS: { bg: 'bg-green-50', text: 'text-green-700', label: 'Thành công' },
     FAILED: { bg: 'bg-red-50', text: 'text-red-700', label: 'Thất bại' },
@@ -103,7 +103,7 @@ export default function TransactionTable({ transaction }: { transaction: Transac
               </thead>
 
               <tbody>
-                {transaction.orders.length ? (
+{transaction.orders.length ? (
                   transaction?.orders.map((txn) => (
                     <tr key={txn.id} className='border-b border-gray-200 hover:bg-gray-50'>
                       {/* Mã giao dịch */}
